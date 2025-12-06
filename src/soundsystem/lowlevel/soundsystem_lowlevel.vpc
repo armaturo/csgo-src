@@ -46,10 +46,4 @@ $Project "soundsystem_lowlevel"
 		$File	"mix.h"
 		$File	"simple_filter.h"
 	}
-
-	$Folder "Link Libraries" [$WINDOWS]
-	{
-		$Lib	"$LIBDXSDK\dsound"	   [$WINDOWS]
-		$Lib	"$LIBDXSDK\dxguid"	   [$WINDOWS]
-	}
 }

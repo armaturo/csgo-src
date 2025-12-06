@@ -31,7 +31,7 @@ $Configuration
 	{
 		$SystemFrameworks				"Carbon;OpenGL;Quartz;Cocoa;IOKit" 
 		$SystemLibraries				"iconv" [$OSXALL]
-		$AdditionalDependencies			"$BASE ws2_32.lib" [$WINDOWS]
+		$AdditionalDependencies			"$BASE ws2_32.lib d3d9.lib" [$WINDOWS]
 		$AdditionalDependencies			"$BASE libgcm_sys_stub.a libsysutil_stub.a libresc_stub.a libspurs_stub.a" [$PS3]
 	}
 }
@@ -79,10 +79,7 @@ $Project "shaderapidx9"
 		$ImpLib togl [!$IS_LIB_PROJECT && $GL]
 
 
-		$Lib	"$LIBCOMMON\bzip2"
-
-		$File	"$SRCDIR\dx9sdk\lib$PLATSUBDIR\d3d9.lib" [$WINDOWS && !$GL]
-		$File	"$SRCDIR\dx9sdk\lib$PLATSUBDIR\d3dx9.lib" [$WINDOWS && !$GL]
+		$Lib	"$SRCDIR\lib\common\vc14\bzip2"
 
 		$File	"$SRCDIR\thirdparty\nvidia\nvapi\lib$PLATSUBDIR\nvapi.lib" [$WINDOWS]
 	}	

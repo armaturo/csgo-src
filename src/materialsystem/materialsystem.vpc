@@ -119,7 +119,6 @@ $Configuration "Debug"
 	$Linker [$WINDOWS]
 	{
 		$AdditionalDependencies			"$BASE"
-		$AdditionalDependencies			"$BASE d3dx9d.lib" [!$GL]
 	}
 
 	$Linker [$X360]
@@ -139,7 +138,6 @@ $Configuration "Release"
 	$Linker [$WINDOWS]
 	{
 		$AdditionalDependencies			"$BASE"
-		$AdditionalDependencies			"$BASE d3dx9.lib"			[!$GL]
 	}
 
 	$Linker [$X360]

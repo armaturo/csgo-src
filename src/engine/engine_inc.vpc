@@ -45,7 +45,7 @@ $Configuration
 	$Linker
 	{
 		$AdditionalDependencies			"$BASE libnet_stub.a libnetctl_stub.a libaudio_stub.a libvoice_stub.a libmic_stub.a libspurs_jq_stub.a libsysutil_userinfo_stub.a libsysutil_savedata_stub.a libmsmp3dec_ppu.a ..\ps3sdk\mp3declib\DirectSpuLinkLibrary\Ppu\Mp3DecLibPpu.a" [$PS3]
-		$AdditionalDependencies			"$BASE dinput8.lib winmm.lib wsock32.lib ws2_32.lib wininet.lib vfw32.lib Rpcrt4.lib Iphlpapi.lib imm32.lib" [$WINDOWS]
+		$AdditionalDependencies			"$BASE dinput8.lib winmm.lib wsock32.lib ws2_32.lib wininet.lib vfw32.lib Rpcrt4.lib Iphlpapi.lib imm32.lib dsound.lib dxguid.lib" [$WINDOWS]
 		$AdditionalLibraryDirectories	"$BASE;$SRCDIR\lib\common\vc7;$SRCDIR\dx9sdk\lib" [$WINDOWS]
 		$SystemFrameworks				"Carbon;AppKit;OpenAL;CoreAudio;AudioToolbox;SystemConfiguration;Quicktime;AudioUnit" [$OSXALL]
 		$SystemLibraries				"iconv" [$OSXALL]
@@ -1254,28 +1254,20 @@ $Project $EPROJ
 		$Lib    videocfg							[$WINDOWS||$OSXALL||($LINUXALL&&!$DEDICATED)]
 		$Lib	vtf
 		$Lib	vgui_controls						[!$DEDICATED]
-		$Lib	"$LIBPUBLIC/steamdatagramlib"		[!$VS2015]
-		$Lib	"$LIBPUBLIC/2015/steamdatagramlib"	[$VS2015]
+		$Lib	"$LIBPUBLIC/2015/steamdatagramlib"
 
-		$Lib	"$SRCDIR\lib\common\vc7\bzip2"		[!$POSIX && !$WIN64 && !$VS2015]
-		$Lib	"$SRCDIR\lib\common\x64\bzip2"		[!$POSIX &&  $WIN64 && !$VS2015]
-		$Lib	"$SRCDIR\lib\common\vc14\bzip2"		[!$POSIX && !$WIN64 && $VS2015]
-		$Lib	"$SRCDIR\lib\common\vc14\x64\bzip2"	[!$POSIX &&  $WIN64 && $VS2015]
+		$Lib	"$SRCDIR\lib\common\vc14\bzip2"
 
 		$Lib	"$LIBCOMMON\bzip2"					[$POSIX]
-		$Lib	"$LIBCOMMON\jpeglib" [$WINDOWS || $OSXALL || ($LINUX && !$DEDICATED)]
+		$Lib	"$LIBCOMMON\libjpeg" [$WINDOWS || $OSXALL || ($LINUX && !$DEDICATED)]
 
-		$File	"$SRCDIR\dx9sdk\Lib$PLATSUBDIR\dsound.lib"		[$WINDOWS]
-		$File	"$SRCDIR\dx9sdk\Lib$PLATSUBDIR\dxguid.lib"		[$WINDOWS]
 
-		$LibExternal	libprotobuf [!$VS2013 && !$VS2015]
-		$LibExternal	$LIBPUBLIC\2013\libprotobuf [$VS2013]
-		$LibExternal	$LIBPUBLIC\2015\libprotobuf [$VS2015]
+		$LibExternal	$LIBPUBLIC\2015\libprotobuf 
 		{
 			$Configuration "Debug" { $ExcludedFromBuild "Yes" }
 		}
 
-		$LibExternal	$LIBPUBLIC\2015\debug\libprotobuf [$VS2015]
+		$LibExternal	$LIBPUBLIC\2015\debug\libprotobuf
 		{
 			$Configuration "Release" { $ExcludedFromBuild "Yes" }
 		}

@@ -803,7 +803,7 @@ $Project "Client (Portal 2)"
 	{
 		$Lib	"$LIBPUBLIC\meshutils"
 		$Lib	"$LIBPUBLIC\game_controls"			[ $IFDEF_GAMEUI_UISYSTEM2_ENABLED]
-		$Lib 	"$LIBCOMMON\jpeglib"				[ $WIN32 ||  $POSIX  ]
+		$Lib 	"$LIBCOMMON\libjpeg"				[ $WIN32 ||  $POSIX  ]
 		$Lib 	"$LIBPUBLIC\vpklib"					[ $WIN32 ||  $POSIX  ]
 		$Lib	"$LIBCOMMON\blobulator"
 		$Lib	"$LIBCOMMON\fileextd"				[ $WIN32 && !$NO_CEG ]

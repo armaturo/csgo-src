@@ -22,7 +22,7 @@
 #include <windows.h>
 #include <zmouse.h>
 #include "xbox/xboxstubs.h"
-#include "../../dx9sdk/include/XInput.h"
+#include <Xinput.h>
 #endif
 
 #if defined( _WIN32 ) && defined( USE_SDL )

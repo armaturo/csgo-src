@@ -2,7 +2,7 @@
  * automatically by autoheader / autoconf / configure. */
 
 /* the location of <hash_map> */
-#define HASH_MAP_H <hash_map>
+#define HASH_MAP_H <unordered_map>
 
 /* the namespace of hash_map/hash_set */
 // Apparently Microsoft decided to move hash_map *back* to the std namespace

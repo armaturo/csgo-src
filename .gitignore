@@ -48,3 +48,6 @@ generated_proto/
 # shader files
 *.tmp
 
+.vscode/
+.cache/
+.DS_Store

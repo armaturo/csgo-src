@@ -79,8 +79,7 @@ $Project
 
 	$Folder "Link Libraries" [$WINDOWS]
 	{
-		$File		"$SRCDIR\lib\common\libpng$PLATSUBDIR\libpng.lib" [!$VS2015]
-		$File		"$SRCDIR\lib\common\libpng$PLATSUBDIR\2015\libpng.lib" [$VS2015]
+		$File		"$SRCDIR\lib\common\libpng$PLATSUBDIR\2015\libpng.lib"
 	}
 	
 	$Folder	"Link Libraries" [$POSIX]
@@ -91,7 +90,7 @@ $Project
 
 	$Folder	"Link Libraries"
 	{
-		$Lib	"$LIBCOMMON\jpeglib"
+		$Lib	"$LIBCOMMON\libjpeg"
 		$LibExternal	"$LIBPUBLIC\libz" [!$OSXALL]
 	}
 }

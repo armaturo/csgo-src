@@ -23,7 +23,7 @@ $Configuration
 
 	$Linker [!$PS3]
 	{
-		$AdditionalDependencies		"$BASE shlwapi.lib winmm.lib wsock32.lib odbc32.lib odbccp32.lib $SRCDIR\dx9sdk\lib\dinput8.lib" [$WINDOWS]
+		$AdditionalDependencies		"$BASE shlwapi.lib winmm.lib wsock32.lib odbc32.lib odbccp32.lib dinput8.lib" [$WINDOWS]
 		$SystemFrameworks                                "Carbon;AppKit;OpenGL;IOKit"
 		$SystemFrameworks								"Carbon;AppKit;OpenGL;IOKit"
 		$SystemLibraries                                "iconv" [$OSXALL]

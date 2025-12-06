@@ -403,7 +403,7 @@ $Project "Client (CSGO)"
 	$Folder	"Additional Link Libraries"
 	{
 		$Lib	"$LIBPUBLIC\meshutils"
-		$Lib 	"$LIBCOMMON\jpeglib" [$WINDOWS||$POSIX]
+		$Lib 	"$LIBCOMMON\libjpeg" [$WINDOWS||$POSIX]
 		$Lib 	"$LIBPUBLIC\vpklib" [$WINDOWS||$POSIX]
 		$Lib	"$LIBPUBLIC\matsys_controls"
 		$ImplibExternal	steam_api							[ ( $WIN32 || $POSIX || $PS3 ) && !$NO_STEAM ]
@@ -414,10 +414,7 @@ $Project "Client (CSGO)"
 		$Lib	"$LIBPUBLIC\vgui_controls"
 		$Lib	"$LIBPUBLIC\vtf"	
 		$Lib	"$LIBCOMMON\fileextd"		[$WINDOWS && $CEG]
-		$Lib	"$SRCDIR\lib\common\vc7\bzip2"		[!$POSIX && !$WIN64 && !$VS2015]
-		$Lib	"$SRCDIR\lib\common\x64\bzip2"		[!$POSIX &&  $WIN64 && !$VS2015]
-		$Lib	"$SRCDIR\lib\common\vc14\bzip2"		[!$POSIX && !$WIN64 && $VS2015]
-		$Lib	"$SRCDIR\lib\common\vc14\x64\bzip2"		[!$POSIX &&  $WIN64 && $VS2015]
+		$Lib	"$SRCDIR\lib\common\vc14\bzip2"
 		$Lib	"$SRCDIR\lib\common\$PLATFORM\bzip2" [$POSIX]
 	}
 }

@@ -220,8 +220,7 @@ $Project "GameUI"
 		$Lib	vpklib
 		$Lib  	"$LIBCOMMON/libjpeg"		[!$DEDICATED]
 		$ImpLib	steam_api
-		$Lib libpng [!$VS2015&&!$DEDICATED]
-		$Lib $LIBCOMMON/libpng [$VS2015&&!$DEDICATED]
+		$Lib $LIBCOMMON/libpng [!$DEDICATED]
 		$Lib libz [!$DEDICATED]
 		$ImpLib SDL2 [$SDL]
 	}

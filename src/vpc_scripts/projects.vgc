@@ -1268,20 +1268,20 @@ $Project "sfmobjects"
 	"sfmobjects/sfmobjects.vpc" [$WINDOWS]
 }
 
-$Project "shadercompile_dll"
-{
-	"utils/shadercompile/shadercompile_dll.vpc" [$WINDOWS]
-}
+//$Project "shadercompile_dll"
+//{
+//	"utils/shadercompile/shadercompile_dll.vpc" [$WINDOWS]
+//}
 
-$Project "shadercompile_launcher"
-{
-	"utils/shadercompile_launcher/shadercompile_launcher.vpc" [$WINDOWS]
-}
+//$Project "shadercompile_launcher"
+//{
+//	"utils/shadercompile_launcher/shadercompile_launcher.vpc" [$WINDOWS]
+//}
 
-$Project "remoteshadercompile"
-{
-	"utils/remoteshadercompile/remoteshadercompile.vpc" [$WINDOWS]
-}
+//$Project "remoteshadercompile"
+//{
+//	"utils/remoteshadercompile/remoteshadercompile.vpc" [$WINDOWS]
+//}
 
 $Project "shaderapidx9"
 {
