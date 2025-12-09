@@ -5,7 +5,7 @@
 #include "mix.h"
 
 #define DIRECTSOUND_VERSION 0x0800
-#include "../thirdparty/dxsdk/include/dsound.h"
+#include <dsound.h>
 #pragma warning(disable : 4201)		// nameless struct/union
 #include <ks.h>
 #include <ksmedia.h>

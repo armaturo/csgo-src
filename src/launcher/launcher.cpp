@@ -868,6 +868,9 @@ bool CSourceAppSystemGroup::Create()
 	{
 		pDLLName = pArg;
 	}
+	if (CommandLine()->CheckParm("-vulkan")) {
+		pDLLName = "shaderapidxvk" DLL_EXT_STRING;
+	}
 	pMaterialSystem->SetShaderAPI( pDLLName );
 
 	elapsed = Plat_FloatTime() - start;
