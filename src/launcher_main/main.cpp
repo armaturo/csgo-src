@@ -134,7 +134,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 
 	const char* pBinPath = 
 #ifdef _WIN64
-		"\\x64"
+		"\\win64"
 #else
 		""
 #endif

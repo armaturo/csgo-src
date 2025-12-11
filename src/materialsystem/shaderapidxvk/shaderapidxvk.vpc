@@ -76,7 +76,7 @@ $Project "shaderapidxvk"
 		$Lib	tier2
 		$Lib	vtf
 		$Lib	videocfg [$WINDOWS||$POSIX]
-        $Lib    "$SRCDIR\lib\public\dxvk_d3d9"
+        $Lib    "$SRCDIR\lib\public$PLATSUBDIR\dxvk_d3d9"
 
 
 		$Lib	"$SRCDIR\lib\common\vc14\bzip2"

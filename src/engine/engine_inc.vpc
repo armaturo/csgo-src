@@ -1282,7 +1282,7 @@ $Project $EPROJ
 		$ImpLib	"SDL2" [$SDL && !$LINUXALL]
 
 		$File	"$SRCDIR\lib\common\win32\phonon3d.lib"	[$WIN32]
-		$File	"$SRCDIR\lib\common\x64\phonon3d.lib"	[$WIN64]
+		$File	"$SRCDIR\lib\common\win64\phonon.lib"	[$WIN64]
 		$File	"$SRCDIR\lib\common\osx64\libphonon3d.dylib" [$OSX64]
 		$File	"$SRCDIR\lib\common\linux32\libphonon3d.so" [$LINUX32 && !$DEDICATED]
 		$File	"$SRCDIR\lib\common\linux64\libphonon3d.so" [$LINUX64 && !$DEDICATED]
