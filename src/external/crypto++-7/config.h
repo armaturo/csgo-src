@@ -266,7 +266,7 @@ const lword LWORD_MAX = W64LIT(0xffffffffffffffff);
 // Clang pretends to be VC++, too.
 //   See http://github.com/weidai11/cryptopp/issues/147
 #if defined(_MSC_VER) && defined(__clang__)
-# error: "Unsupported configuration"
+//# error: "Unsupported configuration"
 #endif
 
 #ifdef __GNUC__

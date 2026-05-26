@@ -299,35 +299,56 @@ inline bool V_isempty( const char* pszString ) { return !pszString || !pszString
 //
 // These functions could also be used for optimizations if locale
 // considerations make some of the CRT functions slow.
+// [armaturo] valve being unreasonably cruel
+#if !defined(CLANGCL)
 #undef isdigit // In case this is implemented as a macro
 #define isdigit use_V_isdigit_instead_of_isdigit
+#endif
 inline bool V_isalpha(char c) { return isalpha( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isalpha
 #define isalpha use_V_isalpha_instead_of_isalpha
+#endif
 inline bool V_isalnum(char c) { return isalnum( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isalnum
 #define isalnum use_V_isalnum_instead_of_isalnum
+#endif
 inline bool V_isprint(char c) { return isprint( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isprint
 #define isprint use_V_isprint_instead_of_isprint
+#endif
 inline bool V_isxdigit(char c) { return isxdigit( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isxdigit
 #define isxdigit use_V_isxdigit_instead_of_isxdigit
+#endif
 inline bool V_ispunct(char c) { return ispunct( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef ispunct
 #define ispunct use_V_ispunct_instead_of_ispunct
+#endif
 inline bool V_isgraph(char c) { return isgraph( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isgraph
 #define isgraph use_V_isgraph_instead_of_isgraph
+#endif
 inline bool V_isupper(char c) { return isupper( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef isupper
 #define isupper use_V_isupper_instead_of_isupper
+#endif
 inline bool V_islower(char c) { return islower( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef islower
 #define islower use_V_islower_instead_of_islower
+#endif
 inline bool V_iscntrl(char c) { return iscntrl( (unsigned char)c ) != 0; }
+#if !defined(CLANGCL)
 #undef iscntrl
 #define iscntrl use_V_iscntrl_instead_of_iscntrl
+#endif
 
 inline bool V_isspace(int c)
 {
@@ -357,9 +378,10 @@ inline bool V_isspace(int c)
 	}
 	#endif
 }
+#if !defined(CLANGCL)
 #undef isspace
 #define isspace use_V_isspace_instead_of_isspace
-
+#endif
 // Returns true if V_isspace returns true for any character in the string
 inline bool V_containsWhitespace( const char *pStr )
 {

@@ -366,7 +366,7 @@ void CServerMsg_CheckReservation::SendMsg( const ns_address &serverAdr, int sock
 	msg.WriteLongLong( 0 );
 #endif
 
-	#ifndef DEDICATED
+	#ifdef KISAK_USE_SDR		
 		if ( serverAdr.GetAddressType() == NSAT_PROXIED_GAMESERVER )
 			NET_InitSteamDatagramProxiedGameserverConnection( serverAdr );
 	#endif
@@ -432,7 +432,7 @@ void CServerMsg_Ping::SendMsg( const ns_address &serverAdr, int socket, uint32 t
 	msg.WriteLong( GetHostVersion() );
 	msg.WriteLong( token );
 
-	#ifndef DEDICATED
+	#ifdef KISAK_USE_SDR
 		if ( serverAdr.GetAddressType() == NSAT_PROXIED_GAMESERVER )
 			NET_InitSteamDatagramProxiedGameserverConnection( serverAdr );
 	#endif
@@ -1493,7 +1493,7 @@ void CBaseClientState::CheckForResend ( bool bForceResendNow /* = false */ )
 					break;
 
 				case NSAT_PROXIED_GAMESERVER:
-					#ifdef DEDICATED
+					#ifndef KISAK_USE_SDR
 						Assert( false );
 					#else
 

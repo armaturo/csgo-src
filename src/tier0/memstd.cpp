@@ -357,12 +357,14 @@ void *operator new[] ( unsigned int nSize, int nBlockUse, const char *pFileName,
 #pragma init_seg( compiler )
 
 #if MEM_SBH_ENABLED
-CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_PRIMARY_SBH, true> >::SharedData_t CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_PRIMARY_SBH, true> >::gm_SharedData CONSTRUCT_EARLY;
+template<>
+CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_PRIMARY_SBH, true> >::SharedData_t CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_PRIMARY_SBH, true> >::gm_SharedData CONSTRUCT_EARLY = {};
 #ifdef MEMALLOC_USE_SECONDARY_SBH
 CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_SECONDARY_SBH, false> >::SharedData_t CSmallBlockPool< CStdMemAlloc::CFixedAllocator< MBYTES_SECONDARY_SBH, false> >::gm_SharedData CONSTRUCT_EARLY;
 #endif
 #ifndef MEMALLOC_NO_FALLBACK
-CSmallBlockPool< CStdMemAlloc::CVirtualAllocator >::SharedData_t CSmallBlockPool< CStdMemAlloc::CVirtualAllocator >::gm_SharedData CONSTRUCT_EARLY;
+template<>
+CSmallBlockPool< CStdMemAlloc::CVirtualAllocator >::SharedData_t CSmallBlockPool< CStdMemAlloc::CVirtualAllocator >::gm_SharedData CONSTRUCT_EARLY = {};
 #endif
 #endif // MEM_SBH_ENABLED
 

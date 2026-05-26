@@ -1726,7 +1726,7 @@ void CThreadLocalBase::Set( void *value )
 
 //-----------------------------------------------------------------------------
 
-#ifdef MSVC
+#if defined(MSVC) && !defined(CLANGCL)
 //#ifdef _X360
 #define TO_INTERLOCK_PARAM(p)		((volatile long *)p)
 #define TO_INTERLOCK_PTR_PARAM(p)	((void **)p)
@@ -1819,7 +1819,7 @@ bool ThreadInterlockedAssignPointerIf( void * volatile *pDest, void *value, void
 }
 #endif
 
-#ifdef COMPILER_MSVC32
+#if defined(COMPILER_MSVC32) && !defined(CLANGCL)
 int64 ThreadInterlockedCompareExchange64( int64 volatile *pDest, int64 value, int64 comperand )
 {
 	Assert( (size_t)pDest % 8 == 0 );
@@ -1843,7 +1843,7 @@ bool ThreadInterlockedAssignIf64(volatile int64 *pDest, int64 value, int64 compe
 {
 	Assert( (size_t)pDest % 8 == 0 );
 
-#if defined(_X360) || defined(_WIN64)
+#if defined(_X360) || defined(_WIN64) || defined(CLANGCL)
 	return ( ThreadInterlockedCompareExchange64( pDest, value, comperand ) == comperand ); 
 #else
 	__asm
@@ -1883,7 +1883,7 @@ bool ThreadInterlockedAssignIf128( volatile int128 *pDest, const int128 &value, 
 }
 #endif
 
-#elif defined(GNUC)
+#elif defined(GNUC) || defined(CLANGCL)
 
 #ifdef OSX
 #include <libkern/OSAtomic.h>
@@ -2031,7 +2031,7 @@ int64 ThreadInterlockedCompareExchange64( int64 volatile *pDest, int64 value, in
 
 #endif
 
-#ifdef COMPILER_MSVC32
+#if defined(COMPILER_MSVC32) && !defined(CLANGCL)
 
 PLATFORM_INTERFACE int64 ThreadInterlockedOr64( int64 volatile *pDest, int64 value )
 {

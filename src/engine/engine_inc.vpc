@@ -1254,7 +1254,7 @@ $Project $EPROJ
 		$Lib    videocfg							[$WINDOWS||$OSXALL||($LINUXALL&&!$DEDICATED)]
 		$Lib	vtf
 		$Lib	vgui_controls						[!$DEDICATED]
-		$Lib	"$LIBPUBLIC/2015/steamdatagramlib"
+		//$Lib	"$LIBPUBLIC/2015/steamdatagramlib"
 
 		$Lib	"$SRCDIR\lib\common\vc14\bzip2"
 

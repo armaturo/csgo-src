@@ -84,7 +84,7 @@ private:
 	public:
 		explicit Iterator( char *m_pMemory = NULL )
 		{
-			m_szServerName = m_pMemory ? m_pMemory : "";
+			m_szServerName = m_pMemory ? const_cast<char*>(m_pMemory) : const_cast<char*>("");
 			if ( *m_szServerName )
 			{
 				memcpy( &m_uuid, m_szServerName + strlen( m_szServerName ) + 1, sizeof( UUID ) );

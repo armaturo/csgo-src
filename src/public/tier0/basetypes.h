@@ -429,7 +429,7 @@ inline bool IsFinite( const vec_t &f )
 #endif
 }
 
-#if defined( WIN32 )
+#if defined( WIN32 ) || defined(CLANGCL)
 
 //#include <math.h>
 // Just use prototype from math.h

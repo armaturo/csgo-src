@@ -569,10 +569,10 @@ private:
             or  eax, fnSet
             cpuid
             mov edi, this
-            mov [edi].m_eax, eax
-            mov [edi].m_ebx, ebx
-            mov [edi].m_ecx, ecx
-            mov [edi].m_edx, edx
+            mov [edi].Cpuid.m_eax, eax
+            mov [edi].Cpuid.m_ebx, ebx
+            mov [edi].Cpuid.m_ecx, ecx
+            mov [edi].Cpuid.m_edx, edx
             }
 #endif
     }

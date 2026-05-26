@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2009, Valve Corporation, All rights reserved. =======//
+//====== Copyright ï¿½ 1996-2009, Valve Corporation, All rights reserved. =======//
 //
 // Purpose: 
 //
@@ -287,7 +287,7 @@ int CNetSupportImpl::SendPacket (
 
 ISteamNetworkingUtils *CNetSupportImpl::GetSteamNetworkingUtils()
 {
-	#ifdef DEDICATED
+	#if !defined(KISAK_USE_SDR)
 		Assert( false ); // why are we asking?
 		return nullptr;
 	#else

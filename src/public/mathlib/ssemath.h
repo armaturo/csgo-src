@@ -3653,7 +3653,7 @@ FORCEINLINE fltx4 ReplicateX4( const float * flValue )
 FORCEINLINE float SubFloat( const fltx4 & a, int idx )
 {
 	// NOTE: if the output goes into a register, this causes a Load-Hit-Store stall (don't mix fpu/vpu math!)
-#ifndef POSIX
+#if !defined(POSIX) && !defined(CLANGCL)
 	return a.m128_f32[ idx ];
 #else
 	return (reinterpret_cast<float const *>(&a))[idx];
@@ -3662,7 +3662,7 @@ FORCEINLINE float SubFloat( const fltx4 & a, int idx )
 
 FORCEINLINE float & SubFloat( fltx4 & a, int idx )
 {
-#ifndef POSIX
+#if !defined(POSIX) && !defined(CLANGCL)
 	return a.m128_f32[ idx ];
 #else
 	return (reinterpret_cast<float *>(&a))[idx];
@@ -3676,7 +3676,7 @@ FORCEINLINE uint32 SubFloatConvertToInt( const fltx4 & a, int idx )
 
 FORCEINLINE uint32 SubInt( const fltx4 & a, int idx )
 {
-#ifndef POSIX
+#if !defined(POSIX) && !defined(CLANGCL)
 	return a.m128_u32[idx];
 #else
 	return (reinterpret_cast<uint32 const *>(&a))[idx];
@@ -3685,7 +3685,7 @@ FORCEINLINE uint32 SubInt( const fltx4 & a, int idx )
 
 FORCEINLINE uint32 & SubInt( fltx4 & a, int idx )
 {
-#ifndef POSIX
+#if !defined(POSIX) && !defined(CLANGCL)
 	return a.m128_u32[idx];
 #else
 	return (reinterpret_cast<uint32 *>(&a))[idx];
@@ -4398,7 +4398,7 @@ FORCEINLINE void RotateLeftDoubleSIMD( fltx4 &a, fltx4 &b )
 
 // // Some convenience operator overloads, which are just aliasing the functions above.
 // Unneccessary on 360, as you already have them from xboxmath.h (same for PS3 PPU and SPU)
-#if !defined(PLATFORM_PPC) && !defined( POSIX ) && !defined(SPU)
+#if !defined(PLATFORM_PPC) && !defined( POSIX ) && !defined(SPU) && !defined(CLANGCL)
 #if 1  // TODO: verify generation of non-bad code. 
 // Componentwise add
 FORCEINLINE fltx4 operator+( FLTX4 a, FLTX4 b )
@@ -5947,7 +5947,7 @@ inline const fltx4 Normalized3SIMD (const fltx4 vec)
 // Some convenience operator overloads, which are just aliasing the functions above.
 // Unneccessary on 360, as you already have them from xboxmath.h
 // Componentwise add
-#ifndef COMPILER_GCC
+#if !defined(COMPILER_GCC) && !defined(CLANGCL)
 
 FORCEINLINE fltx4 operator+=( fltx4 &a, FLTX4 b )
 {

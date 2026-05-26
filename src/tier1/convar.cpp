@@ -77,8 +77,10 @@ void ConVar_Register( int nCVarFlag, IConCommandBaseAccessor *pAccessor )
 	while ( pCur )
 	{
 		pNext = pCur->m_pNext;
-		pCur->AddFlags( s_nCVarFlag );
-		pCur->Init();
+		if (*(void**)pCur != nullptr) { 
+        	pCur->AddFlags(s_nCVarFlag);
+        	pCur->Init();
+    	}
 		pCur = pNext;
 	}
 

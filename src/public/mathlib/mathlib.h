@@ -1815,7 +1815,7 @@ FORCEINLINE int Float2Int( float a )
 	
 	int RetVal;
 
-#if defined( COMPILER_MSVC32 )
+#if defined( COMPILER_MSVC32 ) && !defined(CLANGCL)
 	int CtrlwdHolder;
 	int CtrlwdSetter;
 	__asm 
@@ -1847,7 +1847,7 @@ inline int Floor2Int( float a )
 
 #if defined( PLATFORM_PPC )
 	RetVal = (int)floor( a );
-#elif defined( COMPILER_MSVC32 )
+#elif defined( COMPILER_MSVC32 ) && !defined(CLANGCL)
    int CtrlwdHolder;
    int CtrlwdSetter;
    __asm 
@@ -1905,7 +1905,7 @@ inline int Ceil2Int( float a )
 
 #if defined( PLATFORM_PPC )
 	RetVal = (int)ceil( a );
-#elif defined( COMPILER_MSVC32 )
+#elif defined( COMPILER_MSVC32 ) && !defined(CLANGCL)
    int CtrlwdHolder;
    int CtrlwdSetter;
    __asm 

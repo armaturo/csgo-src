@@ -76,7 +76,8 @@ $Configuration "Release"
 		// Code Generation
 		$EnableStringPooling				"Yes (/GF)"
 		$EnableMinimalRebuild
-		$EnableC++Exceptions				"No"
+		$EnableC++Exceptions				"Yes (/EHsc)" [$CLANGCL]
+		$EnableC++Exceptions				"No" [!$CLANGCL]
 		$SmallerTypeCheck
 		$BasicRuntimeChecks
 		$RuntimeLibrary						"Multi-threaded (/MT)"

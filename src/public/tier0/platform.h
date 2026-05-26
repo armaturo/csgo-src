@@ -729,7 +729,8 @@ typedef void * HINSTANCE;
 #define  FLOAT32_MAX		FLT_MAX
 #define  FLOAT64_MAX		DBL_MAX
 
-#ifdef GNUC
+#if !defined(CLANGCL)
+#if defined(GNUC)
 #undef offsetof
 // Note: can't use builtin offsetof because many use cases (esp. in templates) wouldn't compile due to restrictions on the builtin offsetof
 //#define offsetof( type, var ) __builtin_offsetof( type, var ) 
@@ -738,6 +739,7 @@ typedef void * HINSTANCE;
 #include <stddef.h>
 #undef offsetof
 #define offsetof(s,m)	(size_t)&(((s *)0)->m)
+#endif
 #endif
 
 
@@ -810,11 +812,19 @@ typedef void * HINSTANCE;
 	// GCC had a few areas where it didn't construct objects in the same order 
 	// that Windows does. So when CVProfile::CVProfile() would access g_pMemAlloc,
 	// it would crash because the allocator wasn't initalized yet.
+	#if defined(CLANGCL)
+	#define CONSTRUCT_EARLY			__attribute__((init_priority(101)))
+	#else
 	#define CONSTRUCT_EARLY
-
+	#endif
+	
 	#define SELECTANY				__declspec(selectany)
 
+	#if defined(CLANGCL)
+	#define RESTRICT
+	#else 
 	#define RESTRICT				__restrict
+	#endif
 	#define RESTRICT_FUNC			__declspec(restrict)
 	#define FMTFUNCTION( a, b )
 	#define NOINLINE

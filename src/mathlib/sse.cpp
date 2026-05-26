@@ -661,12 +661,8 @@ void VectorRotateSSE( const float *in1, const matrix3x4_t& in2, float *out1 )
 }
 
 #if defined( _WIN32 ) && !defined( _WIN64 )
-void _declspec(naked) _SSE_VectorMA( const float *start, float scale, const float *direction, float *dest )
+void _declspec(naked) _SSE_VectorMA_goddamn( const float *start, float scale, const float *direction, float *dest )
 {
-	// FIXME: This don't work!! It will overwrite memory in the write to dest
-	Assert(0);
-
-	Assert( s_bMathlibInitialized );
 	_asm {  // Intel SSE only routine
 		mov	eax, DWORD PTR [esp+0x04]	; *start, s0..s2
 		mov ecx, DWORD PTR [esp+0x0c]	; *direction, d0..d2
@@ -688,6 +684,16 @@ void _declspec(naked) _SSE_VectorMA( const float *start, float scale, const floa
 		movups	[edx], xmm3				; *dest = x3
 #endif
 	}
+}
+
+// [armaturo] error: non-ASM statement in naked function is not supported
+void _SSE_VectorMA(const float* start, float scale, const float* direction, float* dest) {
+	// FIXME: This don't work!! It will overwrite memory in the write to dest
+	Assert(0);
+
+	Assert(s_bMathlibInitialized);
+
+	_SSE_VectorMA_goddamn(start, scale, direction, dest);
 }
 #endif
 

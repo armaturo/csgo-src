@@ -13,6 +13,7 @@ $Configuration
 		$PlatformToolset "v141" [$VS2017]
 		$PlatformToolset "v142" [$VS2019]
 		$PlatformToolset "v143"	[$VS2022]
+		$PlatformToolset "ClangCL" [$CLANGCL]
 		}
 
 	$General
@@ -30,6 +31,9 @@ $Configuration
 	{
 		$MultiProcessorCompilation "True"
 
+		$PreprocessorDefinitions "$BASE;CLANGCL" [$CLANGCL]
+		$AdditionalOptions "$BASE -Wno-narrowing" [$CLANGCL]
+		
 		// warning C4316: object allocated on the heap may not be aligned 16
 		$DisableSpecificWarnings	"$BASE;4316" [$VS2013]
 
